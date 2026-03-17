@@ -1,34 +1,34 @@
 package com.example.lab08;
 
+import java.util.Objects;
+
 public class City {
-    private String city;
+    private String name;
     private String province;
 
-    public City(String city, String province){
-        this.city = city;
+    public City(String name, String province) {
+        this.name = name;
         this.province = province;
     }
 
-    public String getCityName(){
-        return this.city;
+    public String getName() {
+        return name;
     }
 
-    public String getProvinceName(){
-        return this.province;
+    public String getProvince() {
+        return province;
     }
 
-    // To make "contains" work properly in tests
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof City)) return false;
-        City cityObj = (City) o;
-        return this.city.equals(cityObj.city)
-                && this.province.equals(cityObj.province);
+        City city = (City) o;
+        return name.equals(city.name) && province.equals(city.province);
     }
 
     @Override
     public int hashCode() {
-        return city.hashCode() + province.hashCode();
+        return Objects.hash(name, province);
     }
 }
