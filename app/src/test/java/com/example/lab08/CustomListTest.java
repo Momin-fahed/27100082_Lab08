@@ -28,4 +28,15 @@ public class CustomListTest {
         // Should FAIL initially
         assertFalse(list.hasCity(calgary));
     }
+
+    @Test
+    public void testCountCities() {
+        CustomList list = new CustomList();
+
+        list.addCity(new City("Calgary", "AB"));
+        list.addCity(new City("Edmonton", "AB"));
+
+        // Should FAIL initially
+        assertEquals(2, list.countCities());
+    }
 }
